@@ -5,15 +5,14 @@ import java.util.Arrays;
 public class Reverse {
 	
 	// adding reverse comment
-<<<<<<< HEAD
+
 	// new cooent
 	
 	// now develop
-=======
+
 	// new cooent helloooo
 	
 	
->>>>>>> db28f598368bcf87f7591e473facd8559c7da67f
 	static char temp;
 	public static void reverse(String s) {
 		
