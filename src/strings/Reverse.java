@@ -6,6 +6,8 @@ public class Reverse {
 	
 	// adding reverse comment
 	// new cooent
+	
+	// now develop
 	static char temp;
 	public static void reverse(String s) {
 		
