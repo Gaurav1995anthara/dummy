@@ -1,0 +1,211 @@
+https://github.com/Gaurav1995anthara/Java_program
+
+
+Cluster Setup:
+
+iwf1116196	15.218.116.196	client	dpclus\admin	Data*pr0
+iwf1116197	15.218.116.197	Clus-CM-node01	dpclus\dpAdmin	Data*pr0
+iwf1116198	15.218.116.198	Clus-CM-node02	dpclus\dpAdmin	Data*pr0
+
+clus4dp	15.218.116.199	 	 	 
+dpcmvirtual	15.218.116.200	 
+	 	 
+DP install DISK	\\dpcmvirtual\dpinstallDisk
+ 	 
+============================================================
+ If any of the node has memory less than 16 GB, the installation fails on that node.
+ Systems chosen to be the Primary Cell Manager and the Secondary Cell Manager(s) must have Serviceguard installed
+
+
+---------------------------------------------------------
+
+
+CREATE TABLE Customers (
+    CustomerName varchar(255),
+    ContactName varchar(255),
+    Address varchar(255),
+    City varchar(255),
+    PostalCode varchar(255),
+	Country varchar(255)
+);
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES
+('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'),
+('Greasy Burger', 'Per Olsen', 'Gateveien 15', 'Sandnes', '4306', 'Norway'),
+('Tasty Tee', 'Finn Egan', 'Streetroad 19B', 'Liverpool', 'L1 0AA', 'UK');
+
+-----------------------------------------------
+Steps to be followed:-
+1.	Take the dp-user-management.war file attached and paste it in your test machine.
+2.	Go to location C:\Program Files\OmniBack\AppServer\bin and open cmd here.
+3.	Run the following commands
+a.	jboss-cli.bat
+b.	connect localhost:9990
+c.	deploy <full path of dp-user-management war file> --force
+
+
+
+ENV_SKIPSIGN_VERIFICATION=1
+
+
+
+
+
+OB2_CLOUD_DEVICE_PROXY=web-proxy.in.softwaregrp.net:8080
+OB2_DEDUPESTORE_MINSIZE=1
+OB2_DEDUPESTORE_MIN_RAM=1
+
+
+ENV_SKIPSIGN_VERIFICATION=1
+
+#OB2SKIPMEMCHECK = 1
+
+OB2_DEDUPESTORE_MINSIZE=1
+
+OB2_DEDUPESTORE_MIN_RAM = 1
+
+OB2_DPD_SHUTDOWN_WAIT_TIME = 0
+
+#OB2DBG = 1-500 DEBUG.txt
+
+#OB2PORTRANGE=16440-16460
+ 
+#OB2_SHUTDOWN_TIMESPAN = <minutes>
+
+#OB2_DPD_SHUTDOWN_WAIT_TIME = <minutes>
+ 
+ 
+
+
+/opt/omni/bin/omnicc -secure_comm -configure_peer Sacdpslescm1.ros.swinfra.net
+
+secure connection to win CM:
+
+/opt/omni/bin/omnicc -secure_comm -configure_peer WinDP_CM_HostName
+
+eg: /opt/omni/bin/omnicc -secure_comm -configure_peer iwf1116217.hpeswlab.net
+ 
+to connect to dp_win_gui from lin_CM : 
+
+/opt/omni/bin/omnicc -secure_comm -configure_for_gui WinDP_CM_HostName
+
+eg: /opt/omni/bin/omnicc -secure_comm -configure_for_gui iwf1116217.hpeswlab.net
+ 
+to connect from a lin_client to lin_CM : 
+
+/opt/omni/bin/omnicc -secure_comm -configure_peer LinDP_CM_HostName
+
+eg: /opt/omni/bin/omnicc -secure_comm -configure_peer iwf1116076.hpeswlab.net
+
+
+
+SQL setup - 15.218.112.168 
+
+sc.exe config omniInet obj= "LocalSystem"
+
+-------------------------------------------------
+
+web-proxy.in.softwaregrp.net 8080
+
+
+
+Nongmsa@systemlab.net
+
+
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type W -usergroup admin -name sqlAdmin -group systemlab -client iwf1116248.systemlab.net -pass Data*pr0
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type W -usergroup admin -name gauravgmsa$ -group systemlab -client ag01.systemlab.net -pass Data*pr0
+
+
+After enabling RBAC:
+
+omniusers -resetpass -name "Administrator|gauravdomain|iwf1116238.gauravdomain.local" -pass Data*pr0
+
+omniusers -resetpass -name "dpadmin|dpclus|dpcmvirtual.dpclus.local" -pass Data*pr0
+
+omniusers -resetpass -name "administrator|systemlab|iwf1116247.systemlab.net" -pass Data*pr0
+
+
+sql AG client
+.\OmniGmsa.ps1 -gmsaUserName gauravgmsa -gmsaDPpasswd Data*pr0 -DpCmClusterName ag01
+
+omniusers -add -type W -usergroup admin -name gauravgmsa$ -group systemlab -client ag01.systemlab.net -pass Data*pr0
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type w -usergroup admin -group hpeswlab -name Administrator -client iwf1116209.hpeswlab.net -pass Data*pr0
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type W -usergroup admin -name gauravgmsa$ -group systemlab -client ag01.systemlab.net -pass Data*pr0
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type W -usergroup admin -name gauravgmsa1$ -group systemlab -client ag01.systemlab.net -pass Data*pr0
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type w -usergroup admin -group anvithdomain -name Administrator -client iwf1116209.anvithdomain.local -pass Data*pr0
+
+
+administrator|systemlab|iwf1116247.systemlab.net
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type w -usergroup admin -group systemlab -name Administrator -client iwf1116247.systemlab.net -pass Data*pr0
+
+
+=======================================
+
+on client execute this command to enable gMSA
+Install-WindowsFeature RSAT-AD-PowerShell,NET-Framework-Features | Out-Null;
+Import-Module ServerManager;
+Import-Module ActiveDirectory;
+
+
+"C:\Program Files\OmniBack\bin\omniusers.exe" -add -type W -usergroup admin -name gauravgmsa1$ -group systemlab -client iwf1116249.systemlab.net -pass Data*pr0
+
+
+
+
+===========================================
+
+
+SHAREPOINT setup
+
+15.218.117.110  -- Administrator / 1iso*help --> HV ZDB server for MS integration
+
+DC - iwf1116239 - 15.218.116.239
+SQL - iwf1116240 - 15.218.116.240
+SHP - iwf1116241 - 15.218.116.241
+
+shp2k19\Administrator
+data*pr0
+
+
+C:\Program Files\omniback\bin>grm_uninstall.bat
+
+C:\Program Files\omniback\bin>grm_install.bat
+
+
+omniusers -add -type w -usergroup admin -name Administrator -group shp2k19 -client iwf1116240.shp2k19.net -pass Data*pr0
+
+------------------------------
+
+
+HP.SharePoint.GranularRecovery.CLI.exe --StartImportJob --ContentDB WSS_Content_2ea28b476cce4e0498855cf4f20005fd --BackupID "2024/10/18-14" -Server iwf1116240 --Instance INSTSHP2K13 --TargetLocation C:\Restore14
+===================================================================================================================================================
+
+link to change password:
+https://passwordchange.swinfra.net/RDWeb/Pages/en-US/password.aspx
+
+=============================================================================================================
+
+16.184.22.164
+
+HPESWLAB\GA
+Gapooma@56
+
+----------------------------
+
+storeones - 15.218.116.169
+
+-------------------------------
+omniusers -resetpass -name "Administrator|gauravdomain|iwf1116238.gauravdomain.local" -pass Data*pr0
+EnableCRSAuthentication=1
+omnisv -stop_basic
+omnisv -start_basic 
+omnicc -offline_authentication
+omnidb -session
+
+omnicc -offline_auth -revoke

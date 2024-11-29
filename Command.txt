@@ -1,0 +1,414 @@
+Java Concepts:
+
+- JDK JRE JVM 
+- Control structure
+- String operations
+- Data types
+- Variables(Local, Instance, Static)
+- wrapper class
+- Enum
+- Class and objects
+- Memory allocation
+- Access modifiers
+- Static (methods, blocks, variables)
+- Methods (non-static and static)
+- Overloading
+- Overriding
+- inheritance
+- Constructors
+- Super keyword
+- This keyword
+- encapsulation
+- Abstraction
+- polymorphism
+- interface (marker, function)
+- Method reference - java8
+- inner class
+- Final, finalyze, finally keywords
+- transient and volatile keywords
+- Exception handling
+- File handling
+- Multithreading
+- Deadlocks
+
+
+- Collection architecture                     - D
+- Arraylist (methods and internal working)    - D
+- Linked list (methods and internal working)  - D
+- vector                                      - D
+- Abstract list
+- Stack                                       - D
+- Queue                                       - D
+- Queue (priority queue)                      - D
+- Dequeue (arrayDequeue)                      - D 
+- hashset (methods and internal working)      - D
+- linked hashset (methods and internal working)   - D
+- treeset (methods and internal working)          - D
+- HashMap (methods and internal working)          - D
+- Hashtable (methods and internal working)
+- linked hashmap (methods and internal working)   - D
+- treemap (methods and internal working)          - D
+- Concurrent haspmap (methods and internal working)   - D
+- Comparable v/s comparator                         - D
+- Iterator (fail-fast, fail-safe)                   - D
+- List Iterator                                     - D
+- Enumerator                                        - D
+- copy on write arraylist                           - D
+- Singleton design pattern
+- Collections dot synchronized map
+- Operators
+- Lambda 
+- Streams
+- JDBC
+---------------------------------------------------------------
+
+- Linked List (related programs)
+- Doubly Linked List (related programs)
+- Circular Linked List
+- Stack (related programs)
+- Queue  (related programs)
+
+-----------------------------------------------------------------
+
+channels: 
+
+Code Decode
+Learn code with durgesh
+-----------------------------------------------------------------
+Selenium:
+
+- Handling dynamic elements, apart from selenium build-in methods, how did you handle dynamic variables
+- Handling mutiple tabls in selenium (getWindowHandle and getWindowHandles)
+- findElement and findElements in selenium
+- Exceptions in selenium
+- Excel sheet in selenium (or Data driven in selenium)
+- how to open multiple browsers in selenium or testng
+- set priority in testng
+- different types of locators and write xpath and xpath on dynamic web elements
+- css selector
+- handle pop up
+- write code for scroll down a page
+
+
+
+
+
+
+-----------------------------
+Framework
+
+- projects you have handled and your responsibilities
+- scope of automation testing in your previous project
+- Type of automation framework you have worked on and explain
+- explain POM
+- Integreate jenkins in selenium
+- selenium grid
+- oops concepts used in framework
+- page factory
+
+
+
+
+
+
+
+
+
+=======================================================================
+
+
+X:\src\integ\sql_7\sql7_main.cpp
+ 
+	- main()
+	
+	initializes arguments, (SQL_InitGlobalStruct) it initializes global structures with defult values and "SQL_ParseOptions -- It will read command line arguments and set the usage (global action)
+	
+	 and then it calles "SQL_CallerConnect"
+	
+X:\src\integ\sql_7\sql7_common.cpp
+	- socket connection creation for passing mesages from sql node to caller (CM)
+	
+X:\src\integ\bar2\ob2service.c
+		- OB2_Init  - it initializes sql bar related processes and services
+
+main()
+	 - now it will switch the global action
+	
+	 - (SQL_InitCom) - it initializes windows com libray and then it will switch for the action
+	  - (SQL7_CMD_CHKCONFIG) 
+	  
+	  - SQL_ReadConfig (It will read the username and password from the configuration file)
+	  - SQL_CheckConfig (It will try to authenticate with the password)
+	  
+	  - SQL_SetAuthentication
+	  
+	  - ODBC.cpp  - its a wrapper file for API functions or calls to execute sql queries or connections
+	  ODBC_New - It initialzzes the structure
+	  
+	  sql7_common.cpp
+	  - SQL_ConnectEx
+	  
+	  - ODBC_Connect - here it creates a sql query and connets to the database
+	  
+	  
+	  
+	  
+	  case SQL7_CMD_DBINFO:
+	  
+	  sql7_browse.cpp
+	  SQL_BrowseDatabases
+	  
+		
+		
+Backup:
+
+SQL_Backup (sql7_backup)
+OB2_StartBackup - if current user has previlages to run backup
+- it creates a connection with BSM for sending backup realted messages to be shown
+
+SQL_FilterDatabases
+
+- It gets all the datbases then excludes the not selected databses
+- getalldatabes  it will get all the databsed and it will exclude which is not selectec and it will validate if databse is assicable
+
+- SQL7_GetLogshippingStatus
+
+
+- SQL7_GetFilesFromDbList - this function fetches the data location and trans log location
+
+- SQL7_FetchDBFiles - where is data location
+
+
+SQL7_GetDBStatus - checks whetehr it is valid state or not
+		
+		
+	SQL7_SetCompression - it cheks and sets default data compression
+
+SQL7_Backup - 	main function which starts the backup on sql server
+
+- SQL7_SetParallelisms - how many parallel connects can be made to the DB
+- SQL7_SetTransferAndBlockSize - here it sets the buffer size to sending the data to MA
+diff-- tans
+
+- SQL7_DisplayPrebackupInfo - displays the pre backup information in the session
+	Pre-backup database information:
+
+
+	Database name ........: adddbs
+	Requested backup type.: full
+	Approx. backup size ..: 2 MB
+	Parallelism ..........: 1
+
+
+SQL7_BackupDatabases - starts the actual backup on the server
+
+- SQL7_GetNmbRunningThreads - gets the number of threads running to perform backup
+- SQL7_GetNextDBToBackup - in a loop of dbs to backuped it selects the current database that needs to be backuped up
+ SQL7_BackupDB
+- SQL7_StartOBBackup - it will create threds and initialize them
+SQL7_StartSQLBackup 
+- SQL7_CreateVDI - here it creates a initialrs VD
+- SQL7_ExecInThread - data reading will be done by this thread. and communicate with MA and MA will send to the TD
+
+
+	
+============================================================================================
+
+
+- first step create a backup sepc with mssql configuration
+- select the database as a surce for the backup
+- perform backup 
+ -
+ - 
+ -
+ 
+- perform restore
+ 
+
+
+
+
+
+
+
+
+
+# ---------------------------------------------- #
+SLES15 Sp3 x64 OS:
+CM1 : 15.218.116.208
+user01 ==> data*pr01
+user02 ==> data*pr02
+DP 23.4 build is available at location:  /DPdepot/23.4
+ 
+ 
+# ---------------------------------------------- #
+ 
+Rhel 8.1 x64 OS: (Note: DP is installed on another disk "/dpinstallDisk" for each DP locations)
+CM1 : 15.218.116.96
+user01 ==> data*pr01
+user02 ==> data*pr02
+DP 23.4 build is available at location:  /DPdepot/DP23.4
+ 
+# ---------------------------------------------- #
+ 
+upgrade three scenarios:
+OS = SLES and RHEL (centOs)
+Note: don't use root use sudo user01 (base version) and user02 (upgrade)
+three releases needs to be tested:
+11.01 ---> 25.1
+23.4 MR --> 25.1
+24.4 MR --> 25.1
+
+steps:
+23.3 CM (check DP java version 17.x) + add custom own java and check the version
+install DP CM and upgrade --> issue reported as ==> upgrade is reporting some error and proceedings.
+Check the upgrade DP logs for << dpidb.log function call >> function call details Anvith will share. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------
+quartz:
+our own schedular
+ot
+
+ofelia:
+
+==========================================
+
+Patch CR - 2
+backlog CR - 1.5
+GMSA testing - 2
+
+---------------------------------------------------
+Cluster Setup:
+
+iwf1116196	15.218.116.196	client	dpclus\admin	Data*pr0
+iwf1116197	15.218.116.197	Clus-CM-node01	dpclus\dpAdmin	data*pr0
+iwf1116198	15.218.116.198	Clus-CM-node02	dpclus\dpAdmin	data*pr0
+
+clus4dp	15.218.116.199	 	 	 
+dpcmvirtual	15.218.116.200	 
+	 	 
+DP install DISK	\\dpcmvirtual\dpinstallDisk
+-------------------------------------------------------
+
+
+GMSA:
+
+IDB backup and restore (RBAC and non-RBAC)
+dedupe backup and restore (CM and client)
+SQL (CM and node)
+Cluster (CM and node)
+Oracle
+
+
+
+upgrade from 24.4 (enable GMSA) to 25.1 
+
+gMSA:
+
+1) Enable gMSA, Perform password authentication and create FileSystem backup (backup should be successful) and perform restore (Restore should be successful)
+2) Enable gMSA, Perform password authentication and create FileSystem backup (backup should be successful), now again reset password (It will not ask for password) and perform restore (Restore should be successful)
+3) Enable gMSA, Perform password authentication and create storeones backup (backup should be successful) and perform restore (Restore should be successful)
+4) Enable gMSA, Perform password authentication and create storeones backup (backup should be successful) and in client user also Perform password authentication, perform restore (Restore should be successful)
+5) Enable gMSA, Perform password authentication and create IDB backup (backup should be successful) and perform online IDB restore to same CM (Restore should be successful)
+6) Enable RBAC and Enable gMSA, Perform password authentication and create storeones backup (backup should be successful) and perform restore (Restore should be successful)
+7) Enable gMSA, Perform password authentication and create IDB backup (backup should be successful), now again revert and reset password and perform online IDB restore to same CM (Restore should be successful)
+8) Enable RBAC and enable gMSA, Perform password authentication and create IDB backup (backup should be successful) and perform online IDB restore to same CM (Restore should be successful)
+9) Enable gMSA, Perform password authentication and create IDB backup (backup should be successful) and perform IDB restore to different CM (Restore should be successful)
+10) Enable gMSA, Perform password authentication and create MSSQL backup using single node (backup should be successful) and perform MSSQL restore (Restore should be successful)
+11) Enable gMSA, Perform password authentication and create MSSQL backup using cluster node (backup should be successful) and perform MSSQL restore (Restore should be successful)
+12) Enable gMSA Perform password authentication and perfrom FileSystem backup in Cluster setup (backup should be successful) and perform restore (Restore should be successful)
+
+common scenario:
+
+1) create 2 users "dp1" and "dp2", perform password authentication in user "dp1" and perform backup. (here user dp1 has access to take backup but not restore) now login to "dp2" perform password authentication in user "dp2" and perform restore for the backup taken by "dp1". Restore should be successful
+
+2) Perform IDB backup (backup should be successful) now enable the feature and perform password authentication and perform IDB restore (restore should be successful)
+
+3)Perform IDB backup (backup should be successful) and enable RBAC and now enable the feature and perform password authentication and perform IDB restore (restore should be successful)
+
+4) Execute operations parallel and check the behaviour:
+perform password authentication, Now in GUI perform parallel backup, at the same time in GUI perform restore to some old backup, at the same time from CLI perform list session, and at the same time check liscence. (all the operation should work parallely without any issue)
+
+-----------------
+
+Create a User Scenario:
+
+Steps:
+
+1) Login as an Administrator and launch DP, create users - under admin, I created 2 user 
+- GAURAV1 - without password
+- GAURAV2 - with password (Data*pr0)
+
+ create users - under user, I created 2 user 
+- GAURAVUSER - without password
+- GAURAVUSER2 - with password (Data*pr0)
+
+ 
+2) Create a OS level user 
+
+here without password I cannot create OS user (password is must)
+- GAURAV1 - Data*pr0
+- GAURAV2 - Data*pr0
+- GAURAVUSER - Data*pr0
+- GAURAVUSER2 - Data*pr0
+
+3) Now I loggedIn OS using user - GAURAV1 (Data*pr0)
+- After login I tried to open DP (But DP could not open, [154:64451] User Authentication failed.) {because in DP during creating user I have not provided password}
+- Now I reset the password from CLI. New password "Data*pr1"
+omniusers -resetpass -name "gaurav1|anvithdomain|iwf1116209.anvithdomain.local" -pass Data*pr1
+- Now I was able to open the DP
+
+- Now from DP GUI for this user GAURAV1 I reset the password to - Data*pr2  (reset password was successful)
+- I launched the DP - DP launched successfully with GAURAV1 user
+- Now I reset the password from CLI. New password "Data*pr2"
+omniusers -resetpass -name "gaurav1|anvithdomain|iwf1116209.anvithdomain.local" -pass Data*pr2
+- Now I was able to open the DP
+
+- Now from DP GUI for this user GAURAV1 i cleared the password (password cleared successfully)
+- Now I closed DP and tried to launched the DP - (But DP could not open, [154:64451] User Authentication failed.) {Since I have cleared password}
+
+
+4)Now I loggedIn OS using user - GAURAV2 (Data*pr0)
+- After login I tried to open DP - DP launched successfully with GAURAV2 user {because in DP during creating user I have provided password}
+- Now I reset the password from CLI. New password "Data*pr1"
+omniusers -resetpass -name "gaurav2|anvithdomain|iwf1116209.anvithdomain.local" -pass Data*pr1
+- I closed the DP and closed the machine. Now I again loggedIn the OS with user "GAURAV2" and password "Data*pr0" and now I launched DP - DP launched successfully with GAURAV2 user
+
+
+5) Now I loggedIn OS using user - GAURAVUSER (Data*pr0)
+- After login I tried to open DP (But DP could not open, [154:64451] User Authentication failed.) {because in DP during creating user I have not provided password}
+- Now I reset the password from CLI. New password "Data*pr1"
+omniusers -resetpass -name "gauravuser|anvithdomain|iwf1116209.anvithdomain.local" -pass Data*pr1
+
+- From CLI I reset the password using old password (old password is optional)
+omniusers -resetpass -name "gauravuser|anvithdomain|iwf1116209.anvithdomain.local" -pass Data*pr2 -oldpass Data*pr1
+
+
+
+
+==========================================
+
+1) First time when he install DP, this feature is by default enabled, now even administrator cannot reset password
+2) If administrator forgets password. How will he reset?
+3) CM and Client
+
+
+
+
+
+
+
+
+
