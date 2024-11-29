@@ -2,6 +2,7 @@ package strings;
 
 public class Rotate_By_2 {
 
+	// rotatesasasas
 	 public static boolean canRotate(String a, String b) {
 	        if (a.length() != b.length()) {
 	            return false; // If lengths are different, 'b' cannot be obtained by rotating 'a'
