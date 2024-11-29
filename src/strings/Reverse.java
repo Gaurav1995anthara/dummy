@@ -27,12 +27,15 @@ public class Reverse {
 		}
 		
 		System.out.println(String.valueOf(c));
+		
+		System.out.println(String.valueOf(c));
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		String s = "gaurav";
 		reverse(s);
+		
 	}
 
 }
