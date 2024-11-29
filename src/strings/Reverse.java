@@ -3,6 +3,8 @@ package strings;
 import java.util.Arrays;
 
 public class Reverse {
+	
+	// adding reverse comment
 	static char temp;
 	public static void reverse(String s) {
 		
